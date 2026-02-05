@@ -27,3 +27,9 @@ Javascript(vanilla JS)
 github.com/codewithDivine-commits
 
 ## Screenshot 
+![alt text](image.png)
+
+## Author
+ CodewithDivine
+ 
+
