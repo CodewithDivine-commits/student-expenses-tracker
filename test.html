@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Form</title>
+</head>
+<body>
+    <h1>Simple Test</h1>
+    <form id="expenses-form">
+        <input type="text" id="title" placeholder="Title">
+        <input type="number" id="amount" placeholder="Amount">
+        <button type="submit">Submit</button>
+    </form>
+    
+    <script>
+        console.log("Test script loaded!");
+        
+        const form = document.getElementById('expenses-form');
+        console.log("Form element:", form);
+        
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            console.log("SUBMIT WORKED!");
+            alert("Form submitted successfully!");
+        });
+    </script>
+</body>
+</html>
