@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Expenses Tracker</title>
+    <title>Student Expenses Tracker - Multi-Currency</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app">
-        <h1>Student Expenses Tracker</h1>
+        <h1>💰 Student Expenses Tracker</h1>
+        <p class="subtitle">Track expenses in multiple currencies</p>
 
         <form id="expenses-form">
             <div>
@@ -16,35 +17,73 @@
                 <input type="text" id="title" placeholder="e.g. Lunch at cafeteria" required>
             </div>
 
-            <div>
-                <label for="amount">Amount ($)</label><br/>
-                <input type="number" id="amount" placeholder="e.g. 15.50" min="0" step="0.01" required>
+            <div class="amount-section">
+                <div class="amount-input">
+                    <label for="amount">Amount</label><br/>
+                    <input type="number" id="amount" placeholder="e.g. 15.50" min="0" step="0.01" required>
+                </div>
+                
+                <div class="currency-select">
+                    <label for="currency">Currency</label><br/>
+                    <select id="currency">
+                        <option value="NGN">🇳🇬 Naira (₦)</option>
+                        <option value="USD">🇺🇸 Dollar ($)</option>
+                        <option value="EUR">🇪🇺 Euro (€)</option>
+                        <option value="GBP">🇬🇧 Pound (£)</option>
+                        <option value="GHS">🇬🇭 Cedis (₵)</option>
+                        <option value="KES">🇰🇪 Shilling (KSh)</option>
+                    </select>
+                </div>
             </div>
 
             <div>
                 <label for="category">Category</label><br/>
                 <select id="category" required>
                     <option value="">Select Category</option>
-                    <option value="Food">Food</option>
-                    <option value="Data">Data</option>
-                    <option value="Transportation">Transportation</option>
-                    <option value="Rent">Rent</option>
-                    <option value="Other">Other</option>
+                    <option value="Food">🍔 Food</option>
+                    <option value="Data">📱 Data/Internet</option>
+                    <option value="Transportation">🚌 Transportation</option>
+                    <option value="Rent">🏠 Rent/Accommodation</option>
+                    <option value="Books">📚 Books/Education</option>
+                    <option value="Entertainment">🎬 Entertainment</option>
+                    <option value="Other">📦 Other</option>
                 </select>
             </div>
 
-            <button type="submit">Add Expense</button>
+            <button type="submit">➕ Add Expense</button>
         </form>
 
+        <div class="currency-totals">
+            <h2>💰 Total by Currency</h2>
+            <div id="currency-totals-display">
+                <!-- Currency totals will appear here -->
+            </div>
+        </div>
+
         <div class="expenses">
-            <h2>Expenses</h2>
+            <h2>📝 Expenses List</h2>
+            <div class="expenses-header">
+                <span>Title</span>
+                <span>Amount</span>
+                <span>Category</span>
+                <span>Date</span>
+                <span>Action</span>
+            </div>
             <ul id="expenses-list">
                 <!-- Expenses will be added here by JavaScript -->
             </ul>
         </div>
 
         <div class="total">
-            <h3>Total Spent: $<span id="total-amount">0</span></h3>
+            <h3>💵 Main Total: <span id="main-total">₦0.00</span></h3>
+            <p class="conversion-note" id="conversion-note">
+                <!-- Currency conversion note will appear here -->
+            </p>
+        </div>
+
+        <div class="footer">
+            <button id="clear-all" class="clear-btn">🗑️ Clear All Expenses</button>
+            <button id="export-btn" class="export-btn">📥 Export as CSV</button>
         </div>
     </div>
 
